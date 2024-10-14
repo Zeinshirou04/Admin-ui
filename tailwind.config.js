@@ -8,8 +8,14 @@ export default {
         poppins: ["Poppins", "sans-serif"],
         inter: ["Inter", "sans-serif"],
       },
-      colors: {
-        primary: "#299D91",
+      textColor: {
+        primary: "#191919",
+        link: "#299D91",
+        hint: "#999DA3"
+      },
+      backgroundColor: {
+        primary: "#299D91", 
+        hint: "#999DA3"
       },
       borderColor: {
         primary: "#4B5768",
