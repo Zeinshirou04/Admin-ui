@@ -6,6 +6,8 @@ function AuthLayout({ children }) {
 
     useEffect(() => {
         let isAuth = localStorage.getItem("user") ? true : false;
+        console.log(localStorage.getItem("user"));
+        
         if (!isAuth) navigate("/login");
     }, []);
 
