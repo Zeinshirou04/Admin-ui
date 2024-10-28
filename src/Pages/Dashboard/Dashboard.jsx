@@ -1,7 +1,6 @@
 import AuthLayout from "../../layout/AuthenticatedLayout";
 import Navbar from "../../Components/Navbar";
 import Sidebar from "../../Components/Sidebar";
-import Card from "../../Components/Card";
 import BalanceCard from "../../Components/BalanceCard";
 import CardLabeled from "../../Components/CardLabeled";
 import { useState } from "react";

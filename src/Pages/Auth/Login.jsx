@@ -1,4 +1,4 @@
-import GuestLayout from "../../Layout/GuestLayout";
+import GuestLayout from "src/Layout/GuestLayout";
 import GoogleLogo from "../../assets/svg/Google.svg";
 import TextInput from "../../Components/TextInput";
 import IconButton from "../../Components/IconButton";
