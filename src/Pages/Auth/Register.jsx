@@ -3,8 +3,12 @@ import GoogleLogo from "../../assets/svg/Google.svg";
 import TextInput from "../../Components/TextInput";
 import IconButton from "../../Components/IconButton";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Register({ setAuth }) {
+
+    const navigate = useNavigate();
+
     const [data, setData] = useState({
         name: undefined,
         email: undefined,
@@ -110,9 +114,9 @@ function Register({ setAuth }) {
                             <div className="w-full">
                                 <p className="text-center text-hint text-sm font-medium py-6">
                                     Already have an account?{" "}
-                                    <a className="!text-link" href="/login">
+                                    <button className="!text-link" onClick={() => {navigate("/login")}}>
                                         Sign in here
-                                    </a>
+                                    </button>
                                 </p>
                             </div>
                         </form>

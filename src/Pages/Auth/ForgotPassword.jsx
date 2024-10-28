@@ -1,8 +1,12 @@
 import GuestLayout from "../../Layout/GuestLayout";
 import TextInput from "../../Components/TextInput";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function ForgotPassword() {
+
+    const navigate = useNavigate();
+
     const [data, setData] = useState({
         email: undefined,
     });
@@ -50,9 +54,9 @@ function ForgotPassword() {
                             />
 
                             <div className="w-full text-center">
-                                <a className="text-hint font-semibold" href="/login">
+                                <button className="text-hint font-semibold" onClick={() => { navigate("/login") }}>
                                     Back to login
-                                </a>
+                                </button>
                             </div>
                         </form>
                     </div>

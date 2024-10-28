@@ -55,9 +55,9 @@ function Login({ setAuth }) {
                   <label htmlFor="password" className="font-medium">
                     Password
                   </label>
-                  <a className="text-xs text-link" href="/forgot/password">
-                    <p>Forgot Password?</p>
-                  </a>
+                  <button className="text-xs text-link" onClick={() => {navigate("/forgot/password")}}>
+                    Forgot Password?
+                  </button>
                 </div>
                 <TextInput
                   type="password"
@@ -97,12 +97,12 @@ function Login({ setAuth }) {
                 alt="Google Icon for Sign In with Google"
                 label="Continue with Google"
               />
-              <a
+              <button
                 className="text-center text-link text-sm font-medium py-6"
-                href="/register"
+                onClick={() => {navigate("/register")}}
               >
                 Create an Account
-              </a>
+              </button>
             </form>
           </div>
         </div>
