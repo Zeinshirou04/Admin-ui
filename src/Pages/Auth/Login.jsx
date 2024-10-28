@@ -3,8 +3,10 @@ import GoogleLogo from "../../assets/svg/Google.svg";
 import TextInput from "../../Components/TextInput";
 import IconButton from "../../Components/IconButton";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-function Login({ setPage, setAuth }) {
+function Login({ setAuth }) {
+  const navigate = useNavigate();
   const [data, setData] = useState({
     email: undefined,
     password: undefined,
@@ -12,15 +14,15 @@ function Login({ setPage, setAuth }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setAuth(true);
-    Navigate("/");
+    localStorage.setItem("user", JSON.stringify(data));
+    navigate("/dashboard");
   };
 
   return (
     <GuestLayout>
-      <div className="w-full h-full text-center flex flex-col justify-center items-center">
-        <div className="w-1/4 p-2">
-          <header className="text-center w-full text-3xl tracking-widest py-8">
+      <div className="w-full h-full text-center flex flex-col justify-center items-center px-4 lg:px-0">
+        <div className="w-full lg:w-1/4 p-2">
+          <header className="text-center w-full text-4xl tracking-widest pb-20">
             <h1 className="text-link font-poppins">
               <span className="font-bold">FINE</span>bank.
               <span className="font-bold">IO</span>
@@ -53,7 +55,7 @@ function Login({ setPage, setAuth }) {
                   <label htmlFor="password" className="font-medium">
                     Password
                   </label>
-                  <a className="text-xs text-primary">
+                  <a className="text-xs text-link" href="/forgot/password">
                     <p>Forgot Password?</p>
                   </a>
                 </div>
@@ -83,7 +85,7 @@ function Login({ setPage, setAuth }) {
               <input
                 type="submit"
                 value="Login"
-                className="bg-primary text-white p-2 rounded-md hover:cursor-pointer"
+                className="bg-primary text-white py-4 rounded-md hover:cursor-pointer"
               />
               <div className="flex flex-row justify-center items-center gap-2">
                 <div className="w-16 h-0.5 bg-hint"></div>
@@ -95,14 +97,12 @@ function Login({ setPage, setAuth }) {
                 alt="Google Icon for Sign In with Google"
                 label="Continue with Google"
               />
-              <button
+              <a
                 className="text-center text-link text-sm font-medium py-6"
-                onClick={() => {
-                  setPage("signUp");
-                }}
+                href="/register"
               >
                 Create an Account
-              </button>
+              </a>
             </form>
           </div>
         </div>

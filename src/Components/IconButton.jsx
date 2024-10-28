@@ -2,7 +2,7 @@ function IconButton({ src = "", alt = "", label = "", className = "" }) {
   return (
     <button
       className={
-        "bg-gray-200 p-2 rounded-md flex flex-row justify-center items-center gap-2 " +
+        "bg-gray-200 py-4 rounded-md flex flex-row justify-center items-center gap-2 " +
         className
       }
     >
