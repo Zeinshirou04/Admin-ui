@@ -1,4 +1,4 @@
-import GuestLayout from "../../Layout/GuestLayout";
+import GuestLayout from "../../layout/GuestLayout";
 import TextInput from "../../Components/TextInput";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
