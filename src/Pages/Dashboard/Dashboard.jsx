@@ -11,8 +11,14 @@ function Dashboard() {
         sidebar: false
     })
 
-    const user = JSON.parse(localStorage.getItem("user"));
-    const fullName = user.name && user.email.split("@")[0].indexOf(".") > -1 ? user.email.split(".")[0] : user.email.split("@")[0].split(".")[0];
+    let fullName = "Jane Doe";
+
+    try {
+        const user = JSON.parse(localStorage.getItem("user"));
+        fullName = user.name && user.email.split("@")[0].indexOf(".") > -1 ? user.email.split(".")[0] : user.email.split("@")[0].split(".")[0];
+    } catch (error) {
+        console.error(error)
+    }
 
     return (
         <AuthLayout>
