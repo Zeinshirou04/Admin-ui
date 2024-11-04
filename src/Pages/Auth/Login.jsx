@@ -5,7 +5,7 @@ import IconButton from "../../Components/IconButton";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-function Login({ setAuth }) {
+function Login({  }) {
   const navigate = useNavigate();
   const [data, setData] = useState({
     email: undefined,

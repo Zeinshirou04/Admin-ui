@@ -11,7 +11,7 @@ import SettingsActive from "../assets/svg/settingsActive.svg"
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 
-function Sidebar({ isActive, setActive }) {
+function Sidebar({ isActive, setActive, pageAt = '', name = "" }) {
 
     const navigate = useNavigate();
 
@@ -20,6 +20,10 @@ function Sidebar({ isActive, setActive }) {
     const handleLogout = () => {
         localStorage.removeItem("user")
         navigate("/login");
+    }
+
+    const handleClickMenu = (route) => {
+        navigate(route);
     }
 
     return (
@@ -54,7 +58,7 @@ function Sidebar({ isActive, setActive }) {
                 </div>
             </div>
             <div className="flex flex-col h-full w-3/4 gap-4">
-                <button className="px-4 py-3 w-full flex flex-row items-center gap-4 text-white/70 active:bg-primary focus:bg-primary rounded-md active:font-semibold focus:font-semibold active:text-white focus:text-white">
+                <button className={"px-4 py-3 w-full flex flex-row items-center gap-4 rounded-md active:font-semibold focus:font-semibold active:text-white focus:text-white " + (pageAt.toLowerCase() == 'overview' ? 'text-white bg-primary font-semibold focus:bg-primary active:text-white focus:text-white' : ' text-white/70 active:bg-primary focus:bg-primary active:text-white focus:text-white')}>
                     <div className="h-8">
                         <img className="h-full" src={overviewActive} alt="Overview icon" />
                     </div>
@@ -86,7 +90,9 @@ function Sidebar({ isActive, setActive }) {
                         Bills
                     </h4>
                 </button>
-                <button className="px-4 py-3 w-full flex flex-row items-center gap-4 text-white/70 active:bg-primary focus:bg-primary rounded-md active:font-semibold focus:font-semibold active:text-white focus:text-white">
+                <button className={"px-4 py-3 w-full flex flex-row items-center gap-4 rounded-md active:font-semibold focus:font-semibold active:text-white focus:text-white " + (pageAt.toLowerCase() == 'expenses' ? 'text-white bg-primary font-semibold focus:bg-primary active:text-white focus:text-white' : ' text-white/70 active:bg-primary focus:bg-primary active:text-white focus:text-white')} onClick={() => {
+                    handleClickMenu("/dashboard/expenses");
+                }}>
                     <div className="h-8">
                         <img className="h-full" src={ExpensesActive} alt="Overview icon" />
                     </div>
@@ -118,6 +124,22 @@ function Sidebar({ isActive, setActive }) {
                         <h5 className="text-white leading-none text-md">
                             Logout
                         </h5>
+                    </button>
+                </div>
+            </div>
+            <div className="w-3/4">
+                <div className="w-full flex flex-row justify-between pt-6 gap-4">
+                    <div className="h-12">
+                        <img className="h-full rounded-full" src="/assets/images/profileImg.png" alt="Profile Image" />
+                    </div>
+                    <div className="grow">
+                        <header className="w-full">
+                            <h6 className="text-white font-bold">{name}</h6>
+                        </header>
+                        <p className="text-hint">View Profile</p>
+                    </div>
+                    <button onClick={handleLogout}>
+                        <i class="fa-solid fa-ellipsis-vertical text-hint text-2xl"></i>
                     </button>
                 </div>
             </div>

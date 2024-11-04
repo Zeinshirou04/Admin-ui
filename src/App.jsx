@@ -3,6 +3,7 @@ import Login from "./Pages/Auth/Login";
 import Register from "./Pages/Auth/Register";
 import ForgotPassword from "./Pages/Auth/ForgotPassword";
 import Dashboard from "./Pages/Dashboard/Dashboard";
+import Expenses from "./Pages/Dashboard/Partials/Expenses";
 
 function App() {
     const routes = createBrowserRouter([
@@ -26,6 +27,10 @@ function App() {
             path: "/dashboard",
             element: <Dashboard />,
         },
+        {
+            path: "/dashboard/expenses",
+            element: <Expenses />
+        }
     ]);
 
     return (
