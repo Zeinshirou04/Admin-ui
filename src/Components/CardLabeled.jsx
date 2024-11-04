@@ -6,7 +6,7 @@ function CardLabeled({children, title = "", labelOne = "", labelTwo = "", classN
                     {title}
                 </h2>
             </header> : ""}
-            <div className="w-full h-full px-4 flex flex-col bg-white rounded-md shadow-md shadow-gray-4">
+            <div className="w-full h-full px-4 pb-4 flex flex-col bg-white rounded-md shadow-md shadow-gray-4">
                 <header className="w-full flex flex-row justify-between border-b-2 border-b-gray-6 px-4 py-4">
                     <div className="w-full">
                         <h3 className="font-bold text-xl">
