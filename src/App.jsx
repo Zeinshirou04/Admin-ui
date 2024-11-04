@@ -4,6 +4,7 @@ import Register from "./Pages/Auth/Register";
 import ForgotPassword from "./Pages/Auth/ForgotPassword";
 import Dashboard from "./Pages/Dashboard/Dashboard";
 import Expenses from "./Pages/Dashboard/Partials/Expenses";
+import Balances from "./Pages/Dashboard/Partials/Balances";
 
 function App() {
     const routes = createBrowserRouter([
@@ -30,7 +31,11 @@ function App() {
         {
             path: "/dashboard/expenses",
             element: <Expenses />
-        }
+        },
+        {
+            path: "/dashboard/balances",
+            element: <Balances />
+        },
     ]);
 
     return (

@@ -1,22 +1,23 @@
-function CardLabeled({children, title = "", labelOne = "", labelTwo = "", className = ""}) {
+function CardLabeled({children, title = "", labelOne = "", labelTwo = "", className = "", labelTwoImg = ""}) {
     return (
         <div className={"w-full h-full flex flex-col gap-2 p-4 " + className}>
-            <header className="w-full text-2xl">
-                <h2 className="text-gray-2">
+            {title ? <header className="w-full text-2xl py-4">
+                <h2 className="text-gray-2 font-semibold">
                     {title}
                 </h2>
-            </header>
-            <div className="w-full h-full p-4 flex flex-col bg-white rounded-md shadow-md shadow-gray-4">
-                <header className="w-full flex flex-row justify-between pb-4 border-b-2 border-b-gray-6">
+            </header> : ""}
+            <div className="w-full h-full px-4 flex flex-col bg-white rounded-md shadow-md shadow-gray-4">
+                <header className="w-full flex flex-row justify-between border-b-2 border-b-gray-6 px-4 py-4">
                     <div className="w-full">
                         <h3 className="font-bold text-xl">
                             {labelOne}
                         </h3>
                     </div>
-                    <div className="w-full flex flex-col justify-end">
+                    <div className="w-full flex flex-row justify-end items-center gap-2">
                         <h4 className="text-right text-sm">
                             {labelTwo}
                         </h4>
+                        <img src={labelTwoImg} alt="" />
                     </div>
                 </header>
                 <div className="w-full h-full pt-2">
