@@ -23,7 +23,7 @@ function Dashboard() {
     return (
         <AuthLayout>
             <div className="w-full h-full flex flex-row overflow-x-hidden relative lg:static">
-                <Sidebar isActive={isActive} setActive={setActive} />
+                <Sidebar name={fullName} isActive={isActive} setActive={setActive} />
                 <div className="w-full h-full flex flex-col gap-4">
                     <Navbar name={fullName} setActive={setActive} />
                     <div className="w-full h-full max-h-full">
