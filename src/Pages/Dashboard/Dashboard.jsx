@@ -10,9 +10,9 @@ import BillItem from "../../Components/BillItem";
 import ExpensesItem from "../../Components/ExpensesItem";
 import TransactionItem from "../../Components/TransactionItem";
 
-import bills from "../../Data/bills";
+import bills from "../../Data/Bills";
 import expensesBreakdowns from "../../Data/Expenses";
-import transactions from "../../Data/transaction";
+import transactions from "../../Data/Transaction";
 
 function Dashboard() {
 
