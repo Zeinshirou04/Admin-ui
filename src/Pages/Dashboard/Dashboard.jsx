@@ -9,10 +9,12 @@ import Card from "../../Components/Card";
 import BillItem from "../../Components/BillItem";
 import ExpensesItem from "../../Components/ExpensesItem";
 import TransactionItem from "../../Components/TransactionItem";
+import Stepper from "../../Components/Elements/Stepper";
 
 import bills from "../../Data/Bills";
 import expensesBreakdowns from "../../Data/Expenses";
 import transactions from "../../Data/Transaction";
+import accounts from "../../Data/AccountsData";
 
 function Dashboard() {
 
@@ -32,10 +34,11 @@ function Dashboard() {
     const billCard = bills.map((bill) => <BillItem data={bill} />);
     const expensesCard = expensesBreakdowns.map((expensesBreakdown) => <ExpensesItem data={expensesBreakdown} />)
     const transactionCard = transactions.map((transaction) => {
-        if(transaction.id <= 5) {
+        if (transaction.id <= 5) {
             return <TransactionItem data={transaction} />;
         }
     })
+    const balanceCard = accounts.map((account) => <BalanceCard data={account} />)
 
     return (
         <AuthLayout>
@@ -47,7 +50,9 @@ function Dashboard() {
                         <div className="w-full h-full overflow-y-auto grid grid-flow-row lg:grid-cols-3">
                             <div className="w-full h-16 lg:hidden"></div>
                             <CardLabeled title="Total balance" labelOne="$240,399" labelTwo="All Accounts">
-                                <BalanceCard accountType="Credit Card" cardNumber="1234567890123456" balance={25000} />
+                                <div className="h-full flex flex-col">
+                                    <Stepper desc={balanceCard} />
+                                </div>
                             </CardLabeled>
                             <CardLabeled title="Goals" labelOne="$20,000" labelTwo="May, 2023">
                             </CardLabeled>

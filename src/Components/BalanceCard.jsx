@@ -1,33 +1,45 @@
-import MasterCardSvg from "../assets/svg/mastercard-logo.svg";
-import ExpandSvg from "../assets/svg/expand-icon.svg";
+import { Link } from "react-router-dom";
+import { Icon } from "./Icon/Index";
 
-function BalanceCard({accountType = "", cardType = "", cardNumber = "", balance = 0}) {
-
-    let lastFourNumCard = cardNumber.split("").slice(12, 16);
-    let cardNumHashed =  "**** **** **** " + lastFourNumCard[0] + lastFourNumCard[1] + lastFourNumCard[2] + lastFourNumCard[3];
-
+function BalanceCard({
+    data = {
+        id: 0,
+        bankName: "",
+        branchName: "",
+        accountType: "",
+        accountNumber: "",
+        balance: 0,
+        logo: "",
+    }
+}) {
     return (
-        <div className="w-full h-full bg-primary rounded-md p-4 flex flex-row gap-2">
-            <div className="w-full h-full text-sm">
-                <p className="text-white/70">
+        <div key={data.id} className="p-2">
+            <div className="flex justify-between bg-primary text-white p-4 rounded-md">
+                <div>
                     Account Type
-                </p>
-                <h5 className="font-semibold text-lg text-white">
-                    {accountType}
-                </h5>
-                <p className="text-white/70">
-                    {cardNumHashed}
-                </p>
-            </div>
-            <div className="w-full h-full flex flex-col items-end">
-                <div className="h-full">
-                    <img className="h-full" src={MasterCardSvg} alt="Mastercard Logo" />
+                    <br />
+                    <span className="text-xl font-bold">
+                        {data.accountType}
+                    </span>
+                    <br />
+                    {data.accountNumber}
                 </div>
-                <div className="h-full flex flex-row justify-end items-end gap-2 text-lg text-white">
-                    <p className="font-semibold leading-none pb-0.5">
-                        {"$" + balance}
-                    </p>
-                    <img src={ExpandSvg} alt="Expand Icon" />
+                <div className="flex flex-col justify-between">
+                    {data.logo != "" && (
+                        <img
+                            className="ms-auto"
+                            src={`/images/${data.logo}`}
+                        />
+                    )}
+
+                    <div className="flex">
+                        <span className="text-xl font-bold">
+                            ${data.balance}
+                        </span>
+                        <div className="bg-white max-w-min rounded-full ps-1 pt-1 ms-4">
+                            {/* <Icon.ArrowUpRight /> */}
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

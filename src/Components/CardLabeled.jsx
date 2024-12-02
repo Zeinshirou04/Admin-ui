@@ -1,7 +1,7 @@
 function CardLabeled({children, title = "", labelOne = "", labelTwo = "", className = "", labelTwoImg = ""}) {
     return (
         <div className={"w-full h-full flex flex-col gap-2 p-4 " + className}>
-            {title ? <header className="w-full text-2xl pb-2">
+            {title ? <header className="w-full text-2xl p-2">
                 <h2 className="text-gray-2 font-semibold">
                     {title}
                 </h2>
