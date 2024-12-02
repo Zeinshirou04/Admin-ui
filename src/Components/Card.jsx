@@ -1,7 +1,7 @@
 function Card({children, title = "", className = ""}) {
     return (
         <div className={"w-full grow flex flex-col gap-2 p-4 " + className}>
-            {title ? <header className="w-full text-2xl py-4">
+            {title ? <header className="w-full text-2xl pb-2">
                 <h2 className="text-gray-2 font-semibold">
                     {title}
                 </h2>

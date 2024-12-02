@@ -1,4 +1,4 @@
-import AuthLayout from "../../../layout/AuthenticatedLayout";
+import AuthLayout from "../../../Layout/AuthenticatedLayout";
 import Sidebar from "../../../Components/Sidebar";
 import Navbar from "../../../Components/Navbar";
 import Card from "../../../Components/Card";
