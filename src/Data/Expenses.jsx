@@ -1,4 +1,4 @@
-import { Icon } from "../Components/Icon";
+import { Icon } from "../Components/Icon/Index";
 
 export const expensesBreakdowns = [
     {

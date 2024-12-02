@@ -1,3 +1,5 @@
+import { Icon } from "./Icon/Index";
+
 function TransactionItem({
     data = {
         id: 0,
