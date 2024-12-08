@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Icon } from "./Icon/Index";
+import { Icon } from "./Icon";
 
 function BalanceCard({
     data = {

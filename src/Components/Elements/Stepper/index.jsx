@@ -30,7 +30,7 @@ const Stepper = (props) => {
                 activeStep={activeStep}
                 className='w-full grow p-0 m-0'
                 nextButton={
-                    <Button size="small" onClick={handleNext} disabled={activeStep === 5}>
+                    <Button size="small" onClick={handleNext} disabled={activeStep === 4}>
                         Next
                         {theme.direction === 'rtl' ? (
                             <KeyboardArrowLeft />

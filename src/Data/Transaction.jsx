@@ -1,4 +1,4 @@
-import { Icon } from "../Components/Icon/Index";
+import { Icon } from "../Components/Icon";
 
 const transactions = [
     {

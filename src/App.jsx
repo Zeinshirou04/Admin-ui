@@ -10,7 +10,7 @@ function App() {
     const routes = createBrowserRouter([
         {
             path: "/",
-            element: <Login />,
+            element: <Dashboard />,
         },
         {
             path: "/login",

@@ -1,4 +1,4 @@
-import { Icon } from "./Icon/Index";
+import { Icon } from "./Icon";
 
 function TransactionItem({
     data = {

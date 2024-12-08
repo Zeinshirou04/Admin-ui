@@ -10,6 +10,8 @@ import BillItem from "../../Components/BillItem";
 import ExpensesItem from "../../Components/ExpensesItem";
 import TransactionItem from "../../Components/TransactionItem";
 import Stepper from "../../Components/Elements/Stepper";
+import CardStatistic from "../../Components/Fragments/Dashboard/CardStatistic";
+import CardGoal from "../../Components/Fragments/Dashboard/CardGoal";
 
 import bills from "../../Data/Bills";
 import expensesBreakdowns from "../../Data/Expenses";
@@ -54,17 +56,14 @@ function Dashboard() {
                                     <Stepper desc={balanceCard} />
                                 </div>
                             </CardLabeled>
-                            <CardLabeled title="Goals" labelOne="$20,000" labelTwo="May, 2023">
-                            </CardLabeled>
+                            <CardGoal />
                             <Card title="Upcoming Bill">
                                 {billCard}
                             </Card>
                             <Card title="Recent Transaction" className="row-span-2">
                                 {transactionCard}
                             </Card>
-                            <Card title="Statistics" className="col-span-2">
-
-                            </Card>
+                            <CardStatistic />
                             <Card title="Expenses Breakdown" className="col-span-2">
                                 <div className="grid grid-cols-3 grid-rows-2">
                                     {expensesCard}
