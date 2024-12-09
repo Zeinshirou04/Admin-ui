@@ -80,7 +80,7 @@ function Sidebar({ isActive, setActive, pageAt = '', name = "" }) {
                         Overview
                     </h4>
                 </button>
-                <button className={"px-4 py-3 w-full flex flex-row items-center gap-4 rounded-md hover:font-semibold active:font-semibold focus:font-semibold hover:text-white active:text-white focus:text-white " + (pageAt.toLowerCase() == 'balances' ? 'text-white bg-primary/90 font-semibold hover:bg-primary active:bg-primary focus:bg-primary active:text-white focus:text-white' : ' text-white/70 hover:bg-primary active:bg-primary focus:bg-primary')} onClick={() => {
+                <button className={"px-4 py-3 w-full flex flex-row items-center gap-4 rounded-md hover:font-semibold active:font-semibold focus:font-semibold hover:text-white active:text-white focus:text-white " + (pageAt.toLowerCase() == 'balances' ? 'text-white bg-primary font-semibold hover:bg-primary active:bg-primary focus:bg-primary active:text-white focus:text-white' : ' text-white/70 hover:bg-primary active:bg-primary focus:bg-primary')} onClick={() => {
                     handleClickMenu("/dashboard/balances")
                 }}>
                     <div className="h-8">
@@ -90,7 +90,7 @@ function Sidebar({ isActive, setActive, pageAt = '', name = "" }) {
                         Balances
                     </h4>
                 </button>
-                <button className={"px-4 py-3 w-full flex flex-row items-center gap-4 rounded-md hover:font-semibold active:font-semibold focus:font-semibold hover:text-white active:text-white focus:text-white " + (pageAt.toLowerCase() == 'transactions' ? 'text-white bg-primary/90 font-semibold hover:bg-primary active:bg-primary focus:bg-primary active:text-white focus:text-white' : ' text-white/70 hover:bg-primary active:bg-primary focus:bg-primary')}>
+                <button className={"px-4 py-3 w-full flex flex-row items-center gap-4 rounded-md hover:font-semibold active:font-semibold focus:font-semibold hover:text-white active:text-white focus:text-white " + (pageAt.toLowerCase() == 'transactions' ? 'text-white bg-primary font-semibold hover:bg-primary active:bg-primary focus:bg-primary active:text-white focus:text-white' : ' text-white/70 hover:bg-primary active:bg-primary focus:bg-primary')}>
                     <div className="h-8">
                         <img className="h-full" src={TransactionsActive} alt="Overview icon" />
                     </div>
@@ -98,7 +98,7 @@ function Sidebar({ isActive, setActive, pageAt = '', name = "" }) {
                         Transactions
                     </h4>
                 </button>
-                <button className={"px-4 py-3 w-full flex flex-row items-center gap-4 rounded-md hover:font-semibold active:font-semibold focus:font-semibold hover:text-white active:text-white focus:text-white " + (pageAt.toLowerCase() == 'bills' ? 'text-white bg-primary/90 font-semibold hover:bg-primary active:bg-primary focus:bg-primary active:text-white focus:text-white' : ' text-white/70 hover:bg-primary active:bg-primary focus:bg-primary')}>
+                <button className={"px-4 py-3 w-full flex flex-row items-center gap-4 rounded-md hover:font-semibold active:font-semibold focus:font-semibold hover:text-white active:text-white focus:text-white " + (pageAt.toLowerCase() == 'bills' ? 'text-white bg-primary font-semibold hover:bg-primary active:bg-primary focus:bg-primary active:text-white focus:text-white' : ' text-white/70 hover:bg-primary active:bg-primary focus:bg-primary')}>
                     <div className="h-8">
                         <img className="h-full" src={BillsActive} alt="Overview icon" />
                     </div>
@@ -106,7 +106,7 @@ function Sidebar({ isActive, setActive, pageAt = '', name = "" }) {
                         Bills
                     </h4>
                 </button>
-                <button className={"px-4 py-3 w-full flex flex-row items-center gap-4 rounded-md hover:font-semibold active:font-semibold focus:font-semibold hover:text-white active:text-white focus:text-white " + (pageAt.toLowerCase() == 'expenses' ? 'text-white bg-primary/90 font-semibold hover:bg-primary active:bg-primary focus:bg-primary active:text-white focus:text-white' : ' text-white/70 hover:bg-primary active:bg-primary focus:bg-primary')} onClick={() => {
+                <button className={"px-4 py-3 w-full flex flex-row items-center gap-4 rounded-md hover:font-semibold active:font-semibold focus:font-semibold hover:text-white active:text-white focus:text-white " + (pageAt.toLowerCase() == 'expenses' ? 'text-white bg-primary font-semibold hover:bg-primary active:bg-primary focus:bg-primary active:text-white focus:text-white' : ' text-white/70 hover:bg-primary active:bg-primary focus:bg-primary')} onClick={() => {
                     handleClickMenu("/dashboard/expenses");
                 }}>
                     <div className="h-8">
@@ -116,7 +116,7 @@ function Sidebar({ isActive, setActive, pageAt = '', name = "" }) {
                         Expenses
                     </h4>
                 </button>
-                <button className={"px-4 py-3 w-full flex flex-row items-center gap-4 rounded-md hover:font-semibold active:font-semibold focus:font-semibold hover:text-white active:text-white focus:text-white " + (pageAt.toLowerCase() == 'goals' ? 'text-white bg-primary/90 font-semibold hover:bg-primary active:bg-primary focus:bg-primary active:text-white focus:text-white' : ' text-white/70 hover:bg-primary active:bg-primary focus:bg-primary')}>
+                <button className={"px-4 py-3 w-full flex flex-row items-center gap-4 rounded-md hover:font-semibold active:font-semibold focus:font-semibold hover:text-white active:text-white focus:text-white " + (pageAt.toLowerCase() == 'goals' ? 'text-white bg-primary font-semibold hover:bg-primary active:bg-primary focus:bg-primary active:text-white focus:text-white' : ' text-white/70 hover:bg-primary active:bg-primary focus:bg-primary')}>
                     <div className="h-8">
                         <img className="h-full" src={GoalsActive} alt="Overview icon" />
                     </div>
@@ -124,7 +124,7 @@ function Sidebar({ isActive, setActive, pageAt = '', name = "" }) {
                         Goals
                     </h4>
                 </button>
-                <button className={"px-4 py-3 w-full flex flex-row items-center gap-4 rounded-md hover:font-semibold active:font-semibold focus:font-semibold hover:text-white active:text-white focus:text-white " + (pageAt.toLowerCase() == 'settings' ? 'text-white bg-primary/90 font-semibold hover:bg-primary active:bg-primary focus:bg-primary active:text-white focus:text-white' : ' text-white/70 hover:bg-primary active:bg-primary focus:bg-primary')}>
+                <button className={"px-4 py-3 w-full flex flex-row items-center gap-4 rounded-md hover:font-semibold active:font-semibold focus:font-semibold hover:text-white active:text-white focus:text-white " + (pageAt.toLowerCase() == 'settings' ? 'text-white bg-primary font-semibold hover:bg-primary active:bg-primary focus:bg-primary active:text-white focus:text-white' : ' text-white/70 hover:bg-primary active:bg-primary focus:bg-primary')}>
                     <div className="h-8">
                         <img className="h-full" src={SettingsActive} alt="Overview icon" />
                     </div>
