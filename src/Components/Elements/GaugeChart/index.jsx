@@ -32,7 +32,7 @@ function GaugePointer() {
 export default function CompositionExample() {
     return (
         <GaugeContainer
-            width={130}
+            className="w-full"
             height={100}
             startAngle={-90}
             endAngle={90}
