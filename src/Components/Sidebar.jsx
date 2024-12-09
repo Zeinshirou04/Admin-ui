@@ -8,10 +8,21 @@ import BillsActive from "../assets/svg/billActive.svg"
 import ExpensesActive from "../assets/svg/expensesActive.svg"
 import GoalsActive from "../assets/svg/goalActive.svg"
 import SettingsActive from "../assets/svg/settingsActive.svg"
-import { useState } from "react"
+import { useState, useContext } from "react"
 import { useNavigate } from "react-router-dom"
+import { ThemeContext } from "../themeContext"
 
 function Sidebar({ isActive, setActive, pageAt = '', name = "" }) {
+
+    const themes = [
+        { name: "theme-green", bgcolor: "bg-[#299D91]", color: "#299D91" },
+        { name: "theme-blue", bgcolor: "bg-[#1E90FF]", color: "#1E90FF" },
+        { name: "theme-purple", bgcolor: "bg-[#6A5ACD]", color: "#6A5ACD" },
+        { name: "theme-pink", bgcolor: "bg-[#DB7093]", color: "#DB7093" },
+        { name: "theme-brown", bgcolor: "bg-[#8B4513]", color: "#8B4513" },
+    ];
+
+    const { theme, setTheme } = useContext(ThemeContext);
 
     const navigate = useNavigate();
 
@@ -27,7 +38,7 @@ function Sidebar({ isActive, setActive, pageAt = '', name = "" }) {
     }
 
     return (
-        <div className={"w-full h-full flex flex-col gap-4 justify-between items-center px-4 pb-12 lg:pt-16 pt-6 absolute bg-black-default z-10 transition-transform duration-200 ease-in-out lg:static lg:-translate-x-0 lg:w-1/5 " + (isActive.sidebar ? "-translate-x-0" : "-translate-x-full")}>
+        <div className={"w-full h-full flex flex-col gap-4 justify-between items-center px-4 pb-12 lg:pt-16 pt-6 absolute bg-black-default z-10 transition-transform duration-200 ease-in-out lg:static lg:-translate-x-0 lg:w-1/5 " + (isActive.sidebar ? "-translate-x-0 " : "-translate-x-full ") + theme.name}>
             <div className="w-full flex flex-row justify-end px-4 lg:hidden">
                 <button className="h-6" onClick={() => {
                     setActive((prevState) => ({
@@ -58,7 +69,8 @@ function Sidebar({ isActive, setActive, pageAt = '', name = "" }) {
                 </div>
             </div>
             <div className="flex flex-col h-full w-3/4 gap-4">
-                <button className={"px-4 py-3 w-full flex flex-row items-center gap-4 rounded-md hover:font-semibold active:font-semibold focus:font-semibold hover:text-white active:text-white focus:text-white " + (pageAt.toLowerCase() == 'overview' ? 'text-white bg-primary/90 font-semibold hover:bg-primary active:bg-primary focus:bg-primary active:text-white focus:text-white' : ' text-white/70 hover:bg-primary active:bg-primary focus:bg-primary')} onClick={() => {
+                {/* <Navlink icon={overviewActive} label="Overview" page={pageAt.toLowerCase()} /> */}
+                <button className={"px-4 py-3 w-full flex flex-row items-center gap-4 rounded-md hover:font-semibold active:font-semibold focus:font-semibold hover:text-white active:text-white focus:text-white " + (pageAt.toLowerCase() == 'overview' ? 'text-white bg-primary font-semibold hover:bg-primary active:bg-primary focus:bg-primary active:text-white focus:text-white' : ' text-white/70 hover:bg-primary active:bg-primary focus:bg-primary')} onClick={() => {
                     handleClickMenu("/dashboard");
                 }}>
                     <div className="h-8">
@@ -120,6 +132,16 @@ function Sidebar({ isActive, setActive, pageAt = '', name = "" }) {
                         Settings
                     </h4>
                 </button>
+            </div>
+            <div className="md:flex md:gap-2 text-white">
+                Themes
+                {themes.map((t) => (
+                    <div
+                        key={t.name}
+                        className={`${t.bgcolor} md:w-6 h-6 rounded-md cursor-pointer mb-2`}
+                        onClick={() => setTheme(t)}
+                    ></div>
+                ))}
             </div>
             <div className="w-3/4">
                 <div className="w-full pb-10 border-b-2 border-b-white/10">

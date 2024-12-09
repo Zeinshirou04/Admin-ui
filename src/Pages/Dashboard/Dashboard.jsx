@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { ThemeContext } from "../../themeContext";
 
 import AuthLayout from "../../Layout/AuthenticatedLayout";
 import Navbar from "../../Components/Navbar";
@@ -24,6 +25,8 @@ function Dashboard() {
         sidebar: false
     })
 
+    const { theme } = useContext(ThemeContext);
+
     let fullName = "Jane Doe";
 
     try {
@@ -44,7 +47,7 @@ function Dashboard() {
 
     return (
         <AuthLayout>
-            <div className="w-full h-full flex flex-row overflow-x-hidden relative lg:static">
+            <div className={`w-full h-full flex flex-row overflow-x-hidden relative lg:static ${theme.name}`}>
                 <Sidebar name={fullName} isActive={isActive} setActive={setActive} pageAt="overview" />
                 <div className="w-full h-full flex flex-col gap-2">
                     <Navbar name={fullName} setActive={setActive} />

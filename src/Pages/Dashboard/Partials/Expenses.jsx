@@ -2,13 +2,16 @@ import AuthLayout from "../../../Layout/AuthenticatedLayout";
 import Sidebar from "../../../Components/Sidebar";
 import Navbar from "../../../Components/Navbar";
 import Card from "../../../Components/Card";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { ThemeContext } from "../../../themeContext";
 
 function Expenses({ }) {
 
     const [isActive, setActive] = useState({
         sidebar: false
     })
+
+    const { theme } = useContext(ThemeContext);
 
     let fullName = "Jane Doe";
 
@@ -21,7 +24,7 @@ function Expenses({ }) {
 
     return (
         <AuthLayout>
-            <div className="w-full h-full flex flex-row overflow-x-hidden relative lg:static">
+            <div className={`w-full h-full flex flex-row overflow-x-hidden relative lg:static ${theme.name}`}>
                 <Sidebar name={fullName} isActive={isActive} setActive={setActive} pageAt="expenses" />
                 <div className="w-full h-full flex flex-col gap-4">
                     <Navbar name={fullName} setActive={setActive} />
@@ -29,7 +32,7 @@ function Expenses({ }) {
                         <div className="w-full h-full overflow-y-auto grid grid-flow-row lg:grid-cols-3">
                             <div className="w-full h-16 lg:hidden"></div>
                             <Card title="Expenses Comparison" className="col-span-3">
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet quaerat deleniti nesciunt error repellat cumque. Neque eligendi eaque perspiciatis tenetur modi molestias rem facere delectus nemo sint! Totam, dolores dolor.
+                                <p className="text-primary">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet quaerat deleniti nesciunt error repellat cumque. Neque eligendi eaque perspiciatis tenetur modi molestias rem facere delectus nemo sint! Totam, dolores dolor.
                                     Quasi a architecto soluta dolores sit tenetur magnam ipsa quibusdam nesciunt aliquam odit id dolore optio, hic temporibus corrupti eos consequuntur facere omnis iure numquam. Culpa veniam atque architecto molestiae.</p>
                             </Card>
                             <div className="w-full flex flex-col col-span-3">
