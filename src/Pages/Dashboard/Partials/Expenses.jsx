@@ -3,7 +3,7 @@ import Sidebar from "../../../Components/Sidebar";
 import Navbar from "../../../Components/Navbar";
 import Card from "../../../Components/Card";
 import { useState, useContext } from "react";
-import { ThemeContext } from "../../../themeContext";
+import { ThemeContext } from "../../../context/themeContext";
 
 function Expenses({ }) {
 

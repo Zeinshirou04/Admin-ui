@@ -6,7 +6,7 @@ import {
 } from "@mui/x-charts/Gauge";
 
 import { useContext } from "react";
-import { ThemeContext } from "../../../themeContext";
+import { ThemeContext } from "../../../context/themeContext";
 
 function GaugePointer() {
     const { theme } = useContext(ThemeContext);

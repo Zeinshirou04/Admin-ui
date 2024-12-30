@@ -10,9 +10,12 @@ import GoalsActive from "../assets/svg/goalActive.svg"
 import SettingsActive from "../assets/svg/settingsActive.svg"
 import { useState, useContext } from "react"
 import { useNavigate } from "react-router-dom"
-import { ThemeContext } from "../themeContext"
+import { ThemeContext } from "../context/themeContext"
+import { AuthContext } from "../context/authContext"
+import { NotifContext } from "../context/notifContext"
+import axios from "axios"
 
-function Sidebar({ isActive, setActive, pageAt = '', name = "" }) {
+function Sidebar({ isActive, setActive, pageAt = '' }) {
 
     const themes = [
         { name: "theme-green", bgcolor: "bg-[#299D91]", color: "#299D91" },
@@ -23,13 +26,39 @@ function Sidebar({ isActive, setActive, pageAt = '', name = "" }) {
     ];
 
     const { theme, setTheme } = useContext(ThemeContext);
-
+    const { setIsLoggedIn, setName, name } = useContext(AuthContext);
+    const { setMsg, setOpen, setIsLoading } = useContext(NotifContext);
     const navigate = useNavigate();
+
+    setOpen(false);
 
     const [isSearching, setSearching] = useState(false);
 
-    const handleLogout = () => {
-        localStorage.removeItem("user")
+    const refreshToken = localStorage.getItem("refreshToken");
+
+    const handleLogout = async () => {
+        setIsLoading(true);
+        try {
+            await axios.get("https://jwt-auth-eight-neon.vercel.app/logout", {
+                headers: {
+                    Authorization: `Bearer ${refreshToken}`
+                }
+            })
+
+            setOpen(true);
+            setMsg({ severity: "Success", desc: "Login Success" });
+        } catch (error) {
+            setIsLoading(false);
+            if (error.response) {
+                setOpen(true);
+                setMsg({ severity: "Error", desc: error.response.data.msg });
+            }
+        }
+        setIsLoggedIn(false);
+        setName("");
+        setIsLoading(false);
+
+        localStorage.removeItem("refreshToken")
         navigate("/login");
     }
 

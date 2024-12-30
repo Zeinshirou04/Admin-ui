@@ -1,5 +1,5 @@
 import { useState, useContext } from "react";
-import { ThemeContext } from "../../themeContext";
+import { ThemeContext } from "../../context/themeContext";
 
 import AuthLayout from "../../Layout/AuthenticatedLayout";
 import Navbar from "../../Components/Navbar";
@@ -50,7 +50,7 @@ function Dashboard() {
             <div className={`w-full h-full flex flex-row overflow-x-hidden relative lg:static ${theme.name}`}>
                 <Sidebar name={fullName} isActive={isActive} setActive={setActive} pageAt="overview" />
                 <div className="w-full h-full flex flex-col gap-2">
-                    <Navbar name={fullName} setActive={setActive} />
+                    <Navbar setActive={setActive} />
                     <div className="w-full h-full max-h-full overflow-y-auto">
                         <div className="w-full h-full overflow-y-auto grid grid-flow-row lg:grid-cols-3">
                             <div className="w-full h-16 lg:hidden"></div>

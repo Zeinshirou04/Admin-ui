@@ -1,16 +1,29 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, Navigate, RouterProvider } from "react-router-dom";
 import Login from "./Pages/Auth/Login";
 import Register from "./Pages/Auth/Register";
 import ForgotPassword from "./Pages/Auth/ForgotPassword";
 import Dashboard from "./Pages/Dashboard/Dashboard";
 import Expenses from "./Pages/Dashboard/Partials/Expenses";
 import Balances from "./Pages/Dashboard/Partials/Balances";
+import { useContext } from "react";
+import { AuthContext } from "./context/authContext";
+
 
 function App() {
+    const { isLoggedIn } = useContext(AuthContext);
+
+    const RequiredAuth = ({ children }) => {
+        return isLoggedIn ? children : <Navigate to="/login" />
+    }
+
     const routes = createBrowserRouter([
         {
             path: "/",
-            element: <Dashboard />,
+            element: (
+                <RequiredAuth>
+                    <Dashboard />
+                </RequiredAuth>
+            ),
         },
         {
             path: "/login",
@@ -26,15 +39,27 @@ function App() {
         },
         {
             path: "/dashboard",
-            element: <Dashboard />,
+            element: (
+                <RequiredAuth>
+                    <Dashboard />
+                </RequiredAuth>
+            ),
         },
         {
             path: "/dashboard/expenses",
-            element: <Expenses />
+            element: (
+                <RequiredAuth>
+                    <Expenses />
+                </RequiredAuth>
+            )
         },
         {
             path: "/dashboard/balances",
-            element: <Balances />
+            element: (
+                <RequiredAuth>
+                    <Balances />
+                </RequiredAuth>
+            )
         },
     ]);
 

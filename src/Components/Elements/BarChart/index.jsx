@@ -2,7 +2,7 @@ import React from 'react'
 import { BarChart } from '@mui/x-charts/BarChart';
 
 import { useContext } from "react";
-import { ThemeContext } from "../../../themeContext";
+import { ThemeContext } from "../../../context/themeContext";
 
 const chartSetting = {
     yAxis: [

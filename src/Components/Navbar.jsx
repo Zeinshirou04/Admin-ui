@@ -2,9 +2,10 @@ import ChevronsRight from "../assets/svg/chevrons-right.svg";
 import Sidebar from "./Sidebar";
 import NotificationBlack from "../assets/svg/notificationBlack.svg"
 import SearchSvg from "../assets/svg/search.svg"
-import { useState } from "react"
+import { useState, useContext } from "react"
+import { AuthContext } from "../context/authContext";
 
-function Navbar({ name = "", setActive }) {
+function Navbar({ setActive }) {
     const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
     const datetime = new Date();
     const month = datetime.getMonth();
@@ -12,6 +13,7 @@ function Navbar({ name = "", setActive }) {
     const year = datetime.getFullYear();
 
     const [isSearching, setSearching] = useState(false);
+    const {name} = useContext(AuthContext);
 
     return (
         <nav className="w-full bg-main h-16 lg:h-20 border-b-2 border-b-gray-5 flex flex-row justify-between p-4 fixed lg:static">
