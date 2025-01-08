@@ -15,30 +15,30 @@ const OverviewIcon = () => (
         <path
             d="M21 14H14V21H21V14Z"
             stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
         />
         <path
             d="M10 14H3V21H10V14Z"
             stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
         />
         <path
             d="M21 3H14V10H21V3Z"
             stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
         />
         <path
             d="M10 3H3V10H10V3Z"
             stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
         />
     </IconWrapper>
 );
@@ -48,23 +48,23 @@ const BalanceIcon = () => (
         <path
             d="M20 12V8H6C5.46957 8 4.96086 7.78929 4.58579 7.41421C4.21071 7.03914 4 6.53043 4 6C4 4.9 4.9 4 6 4H18V8"
             stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
         />
         <path
             d="M4 6V18C4 19.1 4.9 20 6 20H20V16"
             stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
         />
         <path
             d="M18 12C17.4696 12 16.9609 12.2107 16.5858 12.5858C16.2107 12.9609 16 13.4696 16 14C16 15.1 16.9 16 18 16H22V12H18Z"
             stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
         />
     </IconWrapper>
 );
@@ -74,30 +74,30 @@ const TransactionIcon = () => (
         <path
             d="M17 11L21 7L17 3"
             stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
         />
         <path
             d="M21 7H9"
             stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
         />
         <path
             d="M7 21L3 17L7 13"
             stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
         />
         <path
             d="M15 17H3"
             stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
         />
     </IconWrapper>
 );
@@ -153,8 +153,8 @@ const TransportIcon = () => {
 const ArrowUpIcon = () => {
     return (
         <IconWrapper>
-            <path d="M8 12.6667V3.33334" stroke="#E73D1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-            <path d="M3.33334 8.00001L8.00001 3.33334L12.6667 8.00001" stroke="#E73D1C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M8 12.6667V3.33334" stroke="#E73D1C" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+            <path d="M3.33334 8.00001L8.00001 3.33334L12.6667 8.00001" stroke="#E73D1C" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
         </IconWrapper>
     );
 }
@@ -162,8 +162,8 @@ const ArrowUpIcon = () => {
 const ArrowDownIcon = () => {
     return (
         <IconWrapper>
-            <path d="M8 2.33325V11.6666" stroke="#4DAF6E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-            <path d="M12.6666 7L7.99992 11.6667L3.33325 7" stroke="#4DAF6E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M8 2.33325V11.6666" stroke="#4DAF6E" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+            <path d="M12.6666 7L7.99992 11.6667L3.33325 7" stroke="#4DAF6E" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
         </IconWrapper>
     );
 }
@@ -171,8 +171,8 @@ const ArrowDownIcon = () => {
 const ArrowRightIcon = () => {
     return (
         <IconWrapper>
-            <path d="M3 12L22 12" stroke="#299D91" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-            <path d="M15 5L22 12L15 19" stroke="#299D91" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M3 12L22 12" stroke="#299D91" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+            <path d="M15 5L22 12L15 19" stroke="#299D91" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
         </IconWrapper>
     );
 }
@@ -180,8 +180,8 @@ const ArrowRightIcon = () => {
 const EditIcon = () => {
     return (
         <IconWrapper>
-            <path d="M8 13.3333H14" stroke="#525256" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-            <path d="M11 2.33334C11.2652 2.06813 11.6249 1.91913 12 1.91913C12.1857 1.91913 12.3696 1.95571 12.5412 2.02678C12.7128 2.09785 12.8687 2.20202 13 2.33334C13.1313 2.46466 13.2355 2.62057 13.3066 2.79215C13.3776 2.96373 13.4142 3.14762 13.4142 3.33334C13.4142 3.51906 13.3776 3.70296 13.3066 3.87454C13.2355 4.04612 13.1313 4.20202 13 4.33334L4.66667 12.6667L2 13.3333L2.66667 10.6667L11 2.33334Z" stroke="#525256" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M8 13.3333H14" stroke="#525256" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+            <path d="M11 2.33334C11.2652 2.06813 11.6249 1.91913 12 1.91913C12.1857 1.91913 12.3696 1.95571 12.5412 2.02678C12.7128 2.09785 12.8687 2.20202 13 2.33334C13.1313 2.46466 13.2355 2.62057 13.3066 2.79215C13.3776 2.96373 13.4142 3.14762 13.4142 3.33334C13.4142 3.51906 13.3776 3.70296 13.3066 3.87454C13.2355 4.04612 13.1313 4.20202 13 4.33334L4.66667 12.6667L2 13.3333L2.66667 10.6667L11 2.33334Z" stroke="#525256" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
         </IconWrapper >
     );
 }

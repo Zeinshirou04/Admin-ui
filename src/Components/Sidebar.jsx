@@ -14,6 +14,7 @@ import { ThemeContext } from "../context/themeContext"
 import { AuthContext } from "../context/authContext"
 import { NotifContext } from "../context/notifContext"
 import axios from "axios"
+import Navlink from "./Fragments/Sidebar/Navlink"
 
 function Sidebar({ isActive, setActive, pageAt = '' }) {
 
@@ -30,8 +31,6 @@ function Sidebar({ isActive, setActive, pageAt = '' }) {
     const { setMsg, setOpen, setIsLoading } = useContext(NotifContext);
     const navigate = useNavigate();
 
-    setOpen(false);
-
     const [isSearching, setSearching] = useState(false);
 
     const refreshToken = localStorage.getItem("refreshToken");
@@ -46,20 +45,20 @@ function Sidebar({ isActive, setActive, pageAt = '' }) {
             })
 
             setOpen(true);
-            setMsg({ severity: "Success", desc: "Login Success" });
+            setMsg({ severity: "success", desc: "Logout Success" });
+            setIsLoggedIn(false);
+            setName("");
+            setIsLoading(false);
+
+            localStorage.removeItem("refreshToken")
+            navigate("/login");
         } catch (error) {
             setIsLoading(false);
             if (error.response) {
                 setOpen(true);
-                setMsg({ severity: "Error", desc: error.response.data.msg });
+                setMsg({ severity: "error", desc: error.response.data.msg });
             }
         }
-        setIsLoggedIn(false);
-        setName("");
-        setIsLoading(false);
-
-        localStorage.removeItem("refreshToken")
-        navigate("/login");
     }
 
     const handleClickMenu = (route) => {
@@ -67,7 +66,7 @@ function Sidebar({ isActive, setActive, pageAt = '' }) {
     }
 
     return (
-        <div className={"w-full h-full flex flex-col gap-4 justify-between items-center px-4 pb-12 lg:pt-16 pt-6 absolute bg-black-default z-10 transition-transform duration-200 ease-in-out lg:static lg:-translate-x-0 lg:w-1/5 " + (isActive.sidebar ? "-translate-x-0 " : "-translate-x-full ") + theme.name}>
+        <aside className={"w-full h-full flex flex-col gap-4 justify-between items-center px-4 pb-12 lg:pt-16 pt-6 absolute bg-black-default z-10 transition-transform duration-200 ease-in-out lg:static lg:-translate-x-0 lg:w-1/5 " + (isActive.sidebar ? "-translate-x-0 " : "-translate-x-full ") + theme.name}>
             <div className="w-full flex flex-row justify-end px-4 lg:hidden">
                 <button className="h-6" onClick={() => {
                     setActive((prevState) => ({
@@ -75,7 +74,7 @@ function Sidebar({ isActive, setActive, pageAt = '' }) {
                         sidebar: false
                     }))
                 }}>
-                    <i class="text-white font-bold fa-solid fa-x"></i>
+                    <i className="text-white font-bold fa-solid fa-x"></i>
                 </button>
             </div>
             <header className="text-3xl">
@@ -98,83 +97,33 @@ function Sidebar({ isActive, setActive, pageAt = '' }) {
                 </div>
             </div>
             <div className="flex flex-col h-full w-3/4 gap-4">
-                {/* <Navlink icon={overviewActive} label="Overview" page={pageAt.toLowerCase()} /> */}
-                <button className={"px-4 py-3 w-full flex flex-row items-center gap-4 rounded-md hover:font-semibold active:font-semibold focus:font-semibold hover:text-white active:text-white focus:text-white " + (pageAt.toLowerCase() == 'overview' ? 'text-white bg-primary font-semibold hover:bg-primary active:bg-primary focus:bg-primary active:text-white focus:text-white' : ' text-white/70 hover:bg-primary active:bg-primary focus:bg-primary')} onClick={() => {
+                <Navlink icon={overviewActive} label="Overview" page={pageAt.toLowerCase()} onClick={() => {
                     handleClickMenu("/dashboard");
-                }}>
-                    <div className="h-8">
-                        <img className="h-full" src={overviewActive} alt="Overview icon" />
-                    </div>
-                    <h4 className="text-lg tracking-wide">
-                        Overview
-                    </h4>
-                </button>
-                <button className={"px-4 py-3 w-full flex flex-row items-center gap-4 rounded-md hover:font-semibold active:font-semibold focus:font-semibold hover:text-white active:text-white focus:text-white " + (pageAt.toLowerCase() == 'balances' ? 'text-white bg-primary font-semibold hover:bg-primary active:bg-primary focus:bg-primary active:text-white focus:text-white' : ' text-white/70 hover:bg-primary active:bg-primary focus:bg-primary')} onClick={() => {
-                    handleClickMenu("/dashboard/balances")
-                }}>
-                    <div className="h-8">
-                        <img className="h-full" src={WalletActive} alt="Overview icon" />
-                    </div>
-                    <h4 className="text-lg tracking-wide">
-                        Balances
-                    </h4>
-                </button>
-                <button className={"px-4 py-3 w-full flex flex-row items-center gap-4 rounded-md hover:font-semibold active:font-semibold focus:font-semibold hover:text-white active:text-white focus:text-white " + (pageAt.toLowerCase() == 'transactions' ? 'text-white bg-primary font-semibold hover:bg-primary active:bg-primary focus:bg-primary active:text-white focus:text-white' : ' text-white/70 hover:bg-primary active:bg-primary focus:bg-primary')}>
-                    <div className="h-8">
-                        <img className="h-full" src={TransactionsActive} alt="Overview icon" />
-                    </div>
-                    <h4 className="text-lg tracking-wide">
-                        Transactions
-                    </h4>
-                </button>
-                <button className={"px-4 py-3 w-full flex flex-row items-center gap-4 rounded-md hover:font-semibold active:font-semibold focus:font-semibold hover:text-white active:text-white focus:text-white " + (pageAt.toLowerCase() == 'bills' ? 'text-white bg-primary font-semibold hover:bg-primary active:bg-primary focus:bg-primary active:text-white focus:text-white' : ' text-white/70 hover:bg-primary active:bg-primary focus:bg-primary')}>
-                    <div className="h-8">
-                        <img className="h-full" src={BillsActive} alt="Overview icon" />
-                    </div>
-                    <h4 className="text-lg tracking-wide">
-                        Bills
-                    </h4>
-                </button>
-                <button className={"px-4 py-3 w-full flex flex-row items-center gap-4 rounded-md hover:font-semibold active:font-semibold focus:font-semibold hover:text-white active:text-white focus:text-white " + (pageAt.toLowerCase() == 'expenses' ? 'text-white bg-primary font-semibold hover:bg-primary active:bg-primary focus:bg-primary active:text-white focus:text-white' : ' text-white/70 hover:bg-primary active:bg-primary focus:bg-primary')} onClick={() => {
+                }} />
+                <Navlink icon={WalletActive} label="Balances" page={pageAt.toLowerCase()} onClick={() => {
+                    handleClickMenu("/dashboard/balances");
+                }} />
+                <Navlink icon={TransactionsActive} label="Transactions" page={pageAt.toLowerCase()} />
+                <Navlink icon={BillsActive} label="Bills" page={pageAt.toLowerCase()} />
+                <Navlink icon={ExpensesActive} label="Expenses" page={pageAt.toLowerCase()} onClick={() => {
                     handleClickMenu("/dashboard/expenses");
-                }}>
-                    <div className="h-8">
-                        <img className="h-full" src={ExpensesActive} alt="Overview icon" />
-                    </div>
-                    <h4 className="text-lg tracking-wide">
-                        Expenses
-                    </h4>
-                </button>
-                <button className={"px-4 py-3 w-full flex flex-row items-center gap-4 rounded-md hover:font-semibold active:font-semibold focus:font-semibold hover:text-white active:text-white focus:text-white " + (pageAt.toLowerCase() == 'goals' ? 'text-white bg-primary font-semibold hover:bg-primary active:bg-primary focus:bg-primary active:text-white focus:text-white' : ' text-white/70 hover:bg-primary active:bg-primary focus:bg-primary')}>
-                    <div className="h-8">
-                        <img className="h-full" src={GoalsActive} alt="Overview icon" />
-                    </div>
-                    <h4 className="text-lg tracking-wide">
-                        Goals
-                    </h4>
-                </button>
-                <button className={"px-4 py-3 w-full flex flex-row items-center gap-4 rounded-md hover:font-semibold active:font-semibold focus:font-semibold hover:text-white active:text-white focus:text-white " + (pageAt.toLowerCase() == 'settings' ? 'text-white bg-primary font-semibold hover:bg-primary active:bg-primary focus:bg-primary active:text-white focus:text-white' : ' text-white/70 hover:bg-primary active:bg-primary focus:bg-primary')}>
-                    <div className="h-8">
-                        <img className="h-full" src={SettingsActive} alt="Overview icon" />
-                    </div>
-                    <h4 className="text-lg tracking-wide">
-                        Settings
-                    </h4>
-                </button>
+                }} />
+                <Navlink icon={GoalsActive} label="Goals" page={pageAt.toLowerCase()} />
+                <Navlink icon={SettingsActive} label="Settings" page={pageAt.toLowerCase()} />
             </div>
             <div className="md:flex md:gap-2 text-white">
                 Themes
                 {themes.map((t) => (
                     <div
                         key={t.name}
-                        className={`${t.bgcolor} md:w-6 h-6 rounded-md cursor-pointer mb-2`}
+                        className={`${t.bgcolor} md:w-6 h-6 rounded-md cursor-pointer mb-2 zoom-in`}
                         onClick={() => setTheme(t)}
                     ></div>
                 ))}
             </div>
             <div className="w-3/4">
                 <div className="w-full pb-10 border-b-2 border-b-white/10">
-                    <button className="w-full flex flex-row items-center gap-3 bg-white/10 px-4 py-3 rounded-md" onClick={handleLogout}>
+                    <button id="logout" className="w-full flex flex-row items-center gap-3 bg-white/10 px-4 py-3 rounded-md zoom-in" onClick={handleLogout}>
                         <img className="h-6" src={LogoutInactive} alt="Logout Icon" />
                         <h5 className="text-white leading-none text-md">
                             Logout
@@ -194,11 +143,11 @@ function Sidebar({ isActive, setActive, pageAt = '' }) {
                         <p className="text-hint">View Profile</p>
                     </div>
                     <button onClick={handleLogout}>
-                        <i class="fa-solid fa-ellipsis-vertical text-hint text-2xl"></i>
+                        <i className="fa-solid fa-ellipsis-vertical text-hint text-2xl"></i>
                     </button>
                 </div>
             </div>
-        </div>
+        </aside>
     );
 }
 

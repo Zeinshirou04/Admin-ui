@@ -8,14 +8,14 @@ export default function CustomizedSnackbars(props) {
     <div>
       <Snackbar
         open={open}
-        autoHideDuration={3000}
+        autoHideDuration={1000}
         anchorOrigin={{ vertical: "top", horizontal: "center" }}
         onClose={() => {
           setOpen(false);
         }}
       >
         <Alert severity={severity} variant="filled" sx={{ width: "100%" }}>
-          <span className="text-lg">{message}</span>
+          <span id="notifMsg" className="text-lg">{message}</span>
         </Alert>
       </Snackbar>
     </div>

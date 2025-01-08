@@ -20,9 +20,7 @@ function App() {
         {
             path: "/",
             element: (
-                <RequiredAuth>
-                    <Dashboard />
-                </RequiredAuth>
+                <Navigate to="/dashboard" />
             ),
         },
         {

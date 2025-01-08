@@ -12,7 +12,7 @@ function BillItem({
     }
 }) {
     return (
-        <div key={data.id} className="lg:flex justify-between pt-3 pb-3">
+        <div key={data.id} className="lg:flex justify-between h-full items-center">
             <div className="flex">
                 <div className="bg-special-bg me-3 px-4 rounded-lg flex place-content-center flex-col">
                     <span className="text-xs">{data.month}</span>

@@ -2,18 +2,21 @@ import GuestLayout from "../../Layout/GuestLayout";
 import GoogleLogo from "../../assets/svg/Google.svg";
 import TextInput from "../../Components/TextInput";
 import IconButton from "../../Components/IconButton";
-import { useState, useContext } from "react";
+import { useContext } from "react";
 import { AuthContext } from "../../context/authContext";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import { NotifContext } from "../../context/notifContext";
+import { PageThemeContext } from "../../context/pageThemeContext";
 import { jwtDecode } from "jwt-decode";
+import * as motion from "motion/react-client"
 
 function Login() {
 
-    const {setMsg, setOpen, setIsLoading} = useContext(NotifContext);
-    const {setIsLoggedIn, setName} = useContext(AuthContext);
+    const { setMsg, setOpen, setIsLoading } = useContext(NotifContext);
+    const { setIsLoggedIn, setName } = useContext(AuthContext);
+    const { dark, setDark } = useContext(PageThemeContext);
 
     // setOpen(false);
 
@@ -38,7 +41,7 @@ function Login() {
 
             setIsLoading(false);
             setOpen(true);
-            setMsg({ severity: "Success", desc: "Login Success" });
+            setMsg({ severity: "success", desc: "Login Success" });
 
             // console.log(response);
             setIsLoggedIn(true);
@@ -50,16 +53,23 @@ function Login() {
             if (error.response) {
                 // console.log(error.response);
                 setOpen(true);
-                setMsg({ severity: "Failed", desc: error.response.data.msg });
+                setMsg({ severity: "error", desc: error.response.data.msg });
             }
         }
     };
 
     return (
         <GuestLayout>
-            <div className="w-full h-full text-center flex flex-col justify-center items-center px-4 lg:px-0">
-                <div className="w-full lg:w-1/4 p-2">
-                    <header className="text-center w-full text-4xl tracking-widest pb-20">
+            <div className={"w-full h-full text-center flex flex-col justify-center items-center px-4 lg:px-0 transition-colors ease-in-out " + (!dark ? "" : "bg-slate-600 text-white")}>
+                <motion.div
+                    initial={{ opacity: 0, scale: 0 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{
+                        duration: 0.4,
+                        scale: { type: "spring", visualDuration: 0.4, bounce: 0.5 },
+                    }}
+                    className="w-full lg:w-1/4 p-2">
+                    <header className="text-center w-full text-4xl tracking-widest pb-20 animate-bounce">
                         <h1 className="text-link font-poppins">
                             <span className="font-bold">FINE</span>bank.
                             <span className="font-bold">IO</span>
@@ -90,7 +100,7 @@ function Login() {
                                     }}
                                 />
                                 {errors?.email && (
-                                    <div className="text-red-500">{errors.email.message}</div>
+                                    <div id="errEmail" className="text-red-500">{errors.email.message}</div>
                                 )}
                             </div>
                             <div className="flex flex-col gap-2">
@@ -114,7 +124,7 @@ function Login() {
                                     }}
                                 />
                                 {errors?.password && (
-                                    <div className="text-red-500">{errors.password.message}</div>
+                                    <div id="errPassword" className="text-red-500">{errors.password.message}</div>
                                 )}
                             </div>
                             <div className="flex flex-row gap-2">
@@ -130,7 +140,7 @@ function Login() {
                             <input
                                 type="submit"
                                 value="Login"
-                                className={!isValid ? "bg-gray-200 text-gray-400 py-4 rounded-md hover:cursor-pointer" : "bg-primary text-white py-4 rounded-md hover:cursor-pointer"}
+                                className={!isValid ? "bg-gray-200 text-gray-400 py-4 rounded-md hover:cursor-pointer" : "bg-primary text-white py-4 rounded-md hover:cursor-pointer zoom-in"}
                                 disabled={!isValid ? "disabled" : ""}
                             />
                             <div className="flex flex-row justify-center items-center gap-2">
@@ -142,6 +152,7 @@ function Login() {
                                 src={GoogleLogo}
                                 alt="Google Icon for Sign In with Google"
                                 label="Continue with Google"
+                                className={!dark ? "" : "bg-primary"}
                             />
                             <button
                                 className="text-center text-link text-sm font-medium py-6"
@@ -150,8 +161,20 @@ function Login() {
                                 Create an Account
                             </button>
                         </form>
+                        <div className="flex gap-3 justify-center">
+                            <button onClick={() => {
+                                setDark(false);
+                            }}>
+                                Light
+                            </button>
+                            <button onClick={() => {
+                                setDark(true);
+                            }}>
+                                Dark
+                            </button>
+                        </div>
                     </div>
-                </div>
+                </motion.div>
             </div>
         </GuestLayout>
     );

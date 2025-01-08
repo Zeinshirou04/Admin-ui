@@ -26,3 +26,7 @@
 .theme-brown {
   --color-primary: #8b4513;
 }
+
+.zoom-in {
+  @apply duration-500 hover:translate-y-1 hover:scale-110;
+}

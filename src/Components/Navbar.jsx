@@ -4,6 +4,7 @@ import NotificationBlack from "../assets/svg/notificationBlack.svg"
 import SearchSvg from "../assets/svg/search.svg"
 import { useState, useContext } from "react"
 import { AuthContext } from "../context/authContext";
+import { PageThemeContext } from "../context/pageThemeContext";
 
 function Navbar({ setActive }) {
     const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
@@ -14,11 +15,12 @@ function Navbar({ setActive }) {
 
     const [isSearching, setSearching] = useState(false);
     const {name} = useContext(AuthContext);
+    const {dark} = useContext(PageThemeContext);
 
     return (
-        <nav className="w-full bg-main h-16 lg:h-20 border-b-2 border-b-gray-5 flex flex-row justify-between p-4 fixed lg:static">
+        <nav className={"w-full h-16 lg:h-20 border-b-2 flex flex-row justify-between p-4 fixed lg:static " + (!dark ? "bg-main border-b-gray-5" : "bg-slate-600 border-b-slate-600")}>
             <div className="order-1 lg:hidden">
-                <i class="text-lg fa-solid fa-bars" onClick={() => {
+                <i className="text-lg fa-solid fa-bars" onClick={() => {
                     setActive((prevState) => ({
                         ...prevState,
                         sidebar: true
@@ -26,11 +28,11 @@ function Navbar({ setActive }) {
                 }}></i>
             </div>
             <div className="w-full order-2 text-right flex flex-row justify-end text-md lg:text-2xl gap-1 lg:order-1 lg:text-left lg:justify-start lg:items-center">
-                <p className="text-gray-3 lg:order-3 lg:!text-sm">
+                <p className={"text-gray-3 lg:order-3 lg:!text-sm " + (dark && "text-white")}>
                     {`${months[month]} ${date}, ${year}`}
                 </p>
                 <img className="h-6 lg:h-7 -scale-x-100 lg:order-2 lg:scale-x-100" src={ChevronsRight} alt="Chevrons Right" />
-                <p className="text-primary font-bold lg:order-1 lg:mr-4">
+                <p className={"text-primary font-bold lg:order-1 lg:mr-4 " + (dark && "text-white")}>
                     Hello, {name}
                 </p>
             </div>

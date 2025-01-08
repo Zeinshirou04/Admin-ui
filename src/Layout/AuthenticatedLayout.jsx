@@ -14,7 +14,7 @@ function AuthLayout({ children }) {
                 <SimpleBackdrop isLoading={isLoading} setIsLoading={setIsLoading} />
             )}
             {msg && (
-                <CustomizedSnackbars severity={msg.severity} message={msg.desc} open={open} setOpen={open} />
+                <CustomizedSnackbars severity={msg.severity} message={msg.desc} open={open} setOpen={setOpen} />
             )}
             {children}
         </main>
